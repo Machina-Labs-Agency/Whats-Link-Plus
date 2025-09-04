@@ -1,4 +1,4 @@
-## 🤝Contributing <img src="https://img.shields.io/github/contributors/tuliosousapro/Whats-Link-Plus">
+## 🤝Contributing <img src="https://img.shields.io/github/contributors/Machina-Labs-Agency/Whats-Link-Plus)">
 We welcome contributions to improve this extension! To contribute:
 1. Fork this repository.
 2. Create a new branch (`git checkout -b feature/your-feature`).
