@@ -1,4 +1,8 @@
-<h1 align="center">Whats Link+ - WA Easy Direct Message and QR Code</h1>
+<a alt="Whats Link+: WA Easy Direct Message and QR Code">
+<img src="https://github.com/Machina-Labs-Agency/Whats-Link-Plus/blob/f16c16cc4f949704eea20c805ebe7ec87fa8663c/Assets/Main-banner-PT-BR.png">
+</a>
+
+<h1 align="center">Whats Link+: WA Easy Direct Message and QR Code</h1>
 
 <h6 align="center">Whats Link+ is a lightweight and user-friendly Chrome extension that makes it easy to send WhatsApp messages and generate shareable links directly from your browser.</h6>
 
