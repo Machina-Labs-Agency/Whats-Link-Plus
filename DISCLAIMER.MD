@@ -2,7 +2,7 @@
 
 ## 1. No Affiliation
 
-The **Whats Link+ - WA Easy Sender** browser extension ("the Software") is an independent, third-party project. It is not affiliated with, associated with, authorized, endorsed by, or in any way officially connected with WhatsApp Inc. or its parent company, Meta Platforms, Inc. The names WhatsApp and Meta, as well as any related names, marks, and emblems, are registered trademarks of their respective owners.
+The **Whats Link+: WA Easy Direct Message and QR Code** browser extension ("the Software") is an independent, third-party project. It is not affiliated with, associated with, authorized, endorsed by, or in any way officially connected with WhatsApp Inc. or its parent company, Meta Platforms, Inc. The names WhatsApp and Meta, as well as any related names, marks, and emblems, are registered trademarks of their respective owners.
 
 ## 2. User Responsibility and Compliance
 
@@ -20,5 +20,6 @@ Engaging in activities that violate the WhatsApp or Meta Terms of Service throug
 * **Legal Repercussions:** You are solely responsible for any legal or financial liability you may incur at any local, national, or international level as a result of using this Software in a non-compliant manner.
 
 ## 4. No Warranty
+
 
 This Software is provided on an "as is" and "as available" basis, without any warranties of any kind, either express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. There is no guarantee that the Software will be error-free or that access thereto will be continuous or uninterrupted.
