@@ -11,3 +11,4 @@ build/
 *.tmp
 .DS_Store
 Assets/brand_identity_markdown.md
+Assets/backup_en-us
