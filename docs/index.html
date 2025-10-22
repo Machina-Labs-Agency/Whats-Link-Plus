@@ -19,12 +19,11 @@
             <div class="container">
                 <nav class="nav">
                     <a href="#" class="nav__logo">
-                        <img src="https://raw.githubusercontent.com/Machina-Labs-Agency/Whats-Link-Plus/d54360d75a605ba1fa1bdc5ab22a68010449572f/Assets/icons/icon128.png" alt="Logo Whats Link+">
+                        <img src="https://raw.githubusercontent.com/Machina-Labs-Agency/Whats-Link-Plus/d54360d75a605ba1fa1bdc5ab22a68010449572f/Assets/icons/icon32.png" alt="Logo Whats Link+">
                         Whats Link+
                     </a>
                     <div class="nav__actions">
-                        <a href="#" class="nav__link">Recursos</a>
-                        <a href="https://github.com/Machina-Labs-Agency/Whats-Link-Plus" class="nav__link">GitHub</a>
+                        <a href="#features" class="nav__link">Recursos</a>                        
                         <a href="https://chromewebstore.google.com/detail/whats-link+-wa-mensagem-d/gnghccpamhlpcjdlcockcdgboodafnak?authuser=0&hl=pt-BR?utm_source=landing-page&utm_medium=cpc&utm_term=extension&utm_content=textlink" class="btn btn--primary">Instalar Extensão</a>
                     </div>
                 </nav>
@@ -133,9 +132,6 @@
                         <a href="https://chromewebstore.google.com/detail/whats-link+-wa-mensagem-d/gnghccpamhlpcjdlcockcdgboodafnak?authuser=0&hl=pt-BR?utm_source=landing-page&utm_medium=cpc&utm_term=extension&utm_content=textlink" class="btn btn--primary btn--extra-large">
                             Instalar Whats Link+
                         </a>
-                        <a href="https://github.com/Machina-Labs-Agency/Whats-Link-Plus" class="btn btn--secondary btn--extra-large">
-                            Ver no GitHub
-                        </a>
                     </div>
                 </div>
             </section>
@@ -157,6 +153,121 @@
         </footer>
     </div>
 
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Política de Privacidade do Whats Link+</h2>
+            
+            <div class="modal-scroll">
+                <p><strong>Última Atualização: 29 de Agosto de 2025</strong></p>
+
+                <h3>1. Dados Coletados</h3>
+                <p>Coletamos apenas o necessário para o funcionamento da extensão. Todos os dados são armazenados localmente no seu navegador.</p>
+                <ul>
+                    <li><strong>Configurações de Usuário</strong>: Seu código de país padrão (ex: "+55") e serviço preferido ("App" ou "Web").</li>
+                    <li><strong>Números Recentes</strong>: Os últimos cinco números de telefone que você usou na extensão.</li>
+                    <li><strong>Dados Técnicos</strong>: Não coletamos dados técnicos como versão do navegador, endereço IP ou logs de erro.</li>
+                </ul>
+
+                <h3>2. Como Usamos Seus Dados</h3>
+                <p>Seus dados são usados exclusivamente para:</p>
+                <ul>
+                    <li>Configurar as configurações padrão da extensão</li>
+                    <li>Preencher a lista de "Números Recentes"</li>
+                    <li>Gerar links e QR codes com base na sua entrada</li>
+                </ul>
+
+                <h3>3. Compartilhamento de Dados</h3>
+                <p>Não compartilhamos seus dados com terceiros. A única comunicação externa ocorre quando você inicia uma ação no WhatsApp.</p>
+
+                <h3>4. Segurança dos Dados</h3>
+                <p>Protegemos seus dados com:</p>
+                <ul>
+                    <li>Armazenamento local seguro</li>
+                    <li>Processamento em memória</li>
+                </ul>
+
+                <h3>5. Direitos do Usuário</h3>
+                <p>Você tem controle total sobre seus dados:</p>
+                <ul>
+                    <li>Gerenciar configurações a qualquer momento</li>
+                    <li>Excluir dados recentes</li>
+                    <li>Parar o uso desinstalando a extensão</li>
+                </ul>
+
+                <p><strong>Ao usar Whats Link+, você aceita esta política.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: var(--neutral-800);
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 70%;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid var(--neutral-700);
+        }
+
+        .modal-scroll {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+
+        .close-modal {
+            color: var(--neutral-300);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: var(--whatsapp-primary);
+        }
+
+        .modal-content h2 {
+            color: var(--whatsapp-primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            color: var(--whatsapp-primary);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p, 
+        .modal-content ul {
+            color: var(--neutral-300);
+            margin-bottom: 15px;
+        }
+
+        .modal-content ul {
+            padding-left: 30px;
+        }
+    </style>
+
     <script>
         // Smooth scroll for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -165,6 +276,43 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+            });
+        });
+
+        // Header scroll effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+
+        // Privacy Policy Modal Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('privacy-policy-modal');
+            const privacyLinks = document.querySelectorAll('a[href*="PRIVACY-POLICY"]');
+            const closeModal = document.querySelector('.close-modal');
+
+            privacyLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
             });
         });
     </script>
