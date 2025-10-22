@@ -19,7 +19,7 @@
             <div class="container">
                 <nav class="nav">
                     <a href="#" class="nav__logo">
-                        <img src="https://raw.githubusercontent.com/Machina-Labs-Agency/Whats-Link-Plus/d54360d75a605ba1fa1bdc5ab22a68010449572f/Assets/icons/icon32.png" alt="Logo Whats Link+">
+                        <img src="https://raw.githubusercontent.com/Machina-Labs-Agency/Whats-Link-Plus/d54360d75a605ba1fa1bdc5ab22a68010449572f/Assets/icons/icon128.png" alt="Logo Whats Link+">
                         Whats Link+
                     </a>
                     <div class="nav__actions">
@@ -154,52 +154,54 @@
     </div>
 
     <!-- Privacy Policy Modal -->
-    <div id="privacy-policy-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Política de Privacidade do Whats Link+</h2>
-            
-            <div class="modal-scroll">
-                <p><strong>Última Atualização: 29 de Agosto de 2025</strong></p>
+    <section id="privacy-section" class="privacy-section" style="display: none;">
+        <div class="container">
+            <div class="privacy-content">
+                <button class="close-privacy">&times; Fechar</button>
+                <h2>Política de Privacidade do Whats Link+</h2>
+                
+                <div class="privacy-scroll">
+                    <p><strong>Última Atualização: 29 de Agosto de 2025</strong></p>
 
-                <h3>1. Dados Coletados</h3>
-                <p>Coletamos apenas o necessário para o funcionamento da extensão. Todos os dados são armazenados localmente no seu navegador.</p>
-                <ul>
-                    <li><strong>Configurações de Usuário</strong>: Seu código de país padrão (ex: "+55") e serviço preferido ("App" ou "Web").</li>
-                    <li><strong>Números Recentes</strong>: Os últimos cinco números de telefone que você usou na extensão.</li>
-                    <li><strong>Dados Técnicos</strong>: Não coletamos dados técnicos como versão do navegador, endereço IP ou logs de erro.</li>
-                </ul>
+                    <h3>1. Dados Coletados</h3>
+                    <p>Coletamos apenas o necessário para o funcionamento da extensão. Todos os dados são armazenados localmente no seu navegador.</p>
+                    <ul>
+                        <li><strong>Configurações de Usuário</strong>: Seu código de país padrão (ex: "+55") e serviço preferido ("App" ou "Web").</li>
+                        <li><strong>Números Recentes</strong>: Os últimos cinco números de telefone que você usou na extensão.</li>
+                        <li><strong>Dados Técnicos</strong>: Não coletamos dados técnicos como versão do navegador, endereço IP ou logs de erro.</li>
+                    </ul>
 
-                <h3>2. Como Usamos Seus Dados</h3>
-                <p>Seus dados são usados exclusivamente para:</p>
-                <ul>
-                    <li>Configurar as configurações padrão da extensão</li>
-                    <li>Preencher a lista de "Números Recentes"</li>
-                    <li>Gerar links e QR codes com base na sua entrada</li>
-                </ul>
+                    <h3>2. Como Usamos Seus Dados</h3>
+                    <p>Seus dados são usados exclusivamente para:</p>
+                    <ul>
+                        <li>Configurar as configurações padrão da extensão</li>
+                        <li>Preencher a lista de "Números Recentes"</li>
+                        <li>Gerar links e QR codes com base na sua entrada</li>
+                    </ul>
 
-                <h3>3. Compartilhamento de Dados</h3>
-                <p>Não compartilhamos seus dados com terceiros. A única comunicação externa ocorre quando você inicia uma ação no WhatsApp.</p>
+                    <h3>3. Compartilhamento de Dados</h3>
+                    <p>Não compartilhamos seus dados com terceiros. A única comunicação externa ocorre quando você inicia uma ação no WhatsApp.</p>
 
-                <h3>4. Segurança dos Dados</h3>
-                <p>Protegemos seus dados com:</p>
-                <ul>
-                    <li>Armazenamento local seguro</li>
-                    <li>Processamento em memória</li>
-                </ul>
+                    <h3>4. Segurança dos Dados</h3>
+                    <p>Protegemos seus dados com:</p>
+                    <ul>
+                        <li>Armazenamento local seguro</li>
+                        <li>Processamento em memória</li>
+                    </ul>
 
-                <h3>5. Direitos do Usuário</h3>
-                <p>Você tem controle total sobre seus dados:</p>
-                <ul>
-                    <li>Gerenciar configurações a qualquer momento</li>
-                    <li>Excluir dados recentes</li>
-                    <li>Parar o uso desinstalando a extensão</li>
-                </ul>
+                    <h3>5. Direitos do Usuário</h3>
+                    <p>Você tem controle total sobre seus dados:</p>
+                    <ul>
+                        <li>Gerenciar configurações a qualquer momento</li>
+                        <li>Excluir dados recentes</li>
+                        <li>Parar o uso desinstalando a extensão</li>
+                    </ul>
 
-                <p><strong>Ao usar Whats Link+, você aceita esta política.</strong></p>
+                    <p><strong>Ao usar Whats Link+, você aceita esta política.</strong></p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <style>
         .modal {
@@ -266,6 +268,61 @@
         .modal-content ul {
             padding-left: 30px;
         }
+
+        .privacy-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .privacy-content {
+            background-color: var(--neutral-800);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 800px;
+            max-height: 80vh;
+            width: 90%;
+            position: relative;
+            border: 1px solid var(--neutral-700);
+        }
+
+        .close-privacy {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--neutral-300);
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .privacy-scroll {
+            max-height: 70vh;
+            overflow-y: auto;
+            padding-top: 40px;
+        }
+
+        /* Ajustar responsividade */
+        @media (max-width: 768px) {
+            .privacy-content {
+                width: 95%;
+                padding: 1rem;
+                max-height: 90vh;
+            }
+            
+            .privacy-scroll {
+                max-height: 80vh;
+            }
+        }
     </style>
 
     <script>
@@ -294,24 +351,27 @@
 
         // Privacy Policy Modal Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('privacy-policy-modal');
-            const privacyLinks = document.querySelectorAll('a[href*="PRIVACY-POLICY"]');
-            const closeModal = document.querySelector('.close-modal');
+            const privacySection = document.getElementById('privacy-section');
+            const privacyLinks = document.querySelectorAll('a[href*="PRIVACY-POLICY"], a[href*="privacidade"]');
+            const closePrivacy = document.querySelector('.close-privacy');
 
             privacyLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    modal.style.display = 'block';
+                    privacySection.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Previne scroll
                 });
             });
 
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
+            closePrivacy.addEventListener('click', function() {
+                privacySection.style.display = 'none';
+                document.body.style.overflow = 'auto';
             });
 
             window.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
+                if (e.target === privacySection) {
+                    privacySection.style.display = 'none';
+                    document.body.style.overflow = 'auto';
                 }
             });
         });
