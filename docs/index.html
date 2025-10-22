@@ -23,7 +23,8 @@
                         Whats Link+
                     </a>
                     <div class="nav__actions">
-                        <a href="#features" class="nav__link">Recursos</a>                        
+                        <a href="#features" class="nav__link">Recursos</a>
+                        <a href="#faq" class="nav__link">FAQ</a>
                         <a href="https://chromewebstore.google.com/detail/whats-link+-wa-mensagem-d/gnghccpamhlpcjdlcockcdgboodafnak?authuser=0&hl=pt-BR?utm_source=landing-page&utm_medium=cpc&utm_term=extension&utm_content=textlink" class="btn btn--primary">Instalar Extensão</a>
                     </div>
                 </nav>
@@ -122,6 +123,62 @@
                 </div>
             </section>
 
+            <section id="faq" class="faq">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Perguntas Frequentes</h2>
+                        <p class="section-subtitle">Tudo que você precisa saber sobre o Whats Link+</p>
+                    </div>
+
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>🔗 Esta extensão é oficial?</h3>
+                            </div>
+                            <div class="faq-answer">
+                                <p>O <strong>Whats Link+</strong> é um projeto independente e não é afiliado, associado ou endossado pelo WhatsApp Inc. ou sua empresa controladora, Meta Platforms. É uma ferramenta criada para melhorar a experiência do usuário.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>🔐 Meus dados estão seguros?</h3>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Absolutamente. Sua privacidade é prioridade. A extensão <strong>não coleta nem rastreia nenhum dado pessoal ou atividade de navegação</strong>. Todas as suas configurações (como código de país padrão) e números recentes são armazenados localmente no armazenamento seguro do seu navegador. Nenhum dado é compartilhado com terceiros, exceto o número de telefone que você fornece aos servidores oficiais do WhatsApp quando escolhe iniciar um chat.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>🖥️ Funciona com o WhatsApp Desktop?</h3>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Sim! Você pode escolher abrir conversas no <strong>WhatsApp Desktop/Mobile</strong> ou na interface do <strong>WhatsApp Web</strong>. Você pode até salvar sua preferência como configuração padrão.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>🌍 Funciona com números internacionais?</h3>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Com certeza! A extensão inclui uma lista suspensa com muitos países e seus códigos. Também possui detecção inteligente para números dos EUA (10 dígitos) e brasileiros (11 dígitos) para selecionar automaticamente o código de país correto.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>✍️ Posso adicionar uma mensagem aos links que crio?</h3>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Claro! O "Gerador de Links e QR Code" inclui um campo opcional para uma <strong>mensagem pré-preenchida</strong>. Qualquer pessoa que clicar no seu link gerado ou escanear seu QR code terá essa mensagem automaticamente carregada na caixa de chat, pronta para enviar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="cta-final">
                 <div class="container">
                     <div class="section-header">
@@ -169,13 +226,39 @@
         // Header scroll effect
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('.header');
-            
+
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
                 }
+            });
+        });
+
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isOpen = answer.classList.contains('open');
+
+                    // Close all other answers and remove active class
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.classList.remove('open');
+                    });
+                    document.querySelectorAll('.faq-question').forEach(q => {
+                        q.classList.remove('active');
+                    });
+
+                    // Toggle current answer
+                    if (!isOpen) {
+                        answer.classList.add('open');
+                        this.classList.add('active');
+                    }
+                });
             });
         });
 
