@@ -7,7 +7,7 @@
 <h6 align="center">Whats Link+ is a lightweight and user-friendly Chrome extension that makes it easy to send WhatsApp messages and generate shareable links directly from your browser.</h6>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg">  <img src="https://img.shields.io/badge/Made%20with-JavaScript-blue">  <img src="https://img.shields.io/badge/Platform-Chromium%20Extension-green">
+  <img src="https://img.shields.io/badge/License-APACHE-red.svg">  <img src="https://img.shields.io/badge/Made%20with-JavaScript-blue">  <img src="https://img.shields.io/badge/Platform-Chromium%20Extension-green"> <img src="https://img.shields.io/chrome-web-store/v/gnghccpamhlpcjdlcockcdgboodafnak?label=Chrome%20Web%20Store">
 </p>
 
 ---
