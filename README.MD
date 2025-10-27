@@ -44,12 +44,19 @@
 
 ## Getting Started Instructions
 
-### Sending a Message
+### Quick Message
+1. Click the extension icon in the toolbar
+2. Select "Quick Message" from the side navigation
+3. Enter or select a phone number (country code vertically aligned)
+4. Click "Send Message"
+- Receive visual feedback within the view itself if there are errors
 
-1.  **Select a number** on any webpage or click the extension icon to type one manually.
-2.  The popup will automatically detect the country code if it's a US or Brazilian number. Otherwise, you can select it from the dropdown.
-3.  Choose whether to open the chat in the **App** or on the **Web**.
-4.  Click **"Send Message"**.
+## Link & QR Code Generator
+1. Select "Link Generator" from the side navigation
+2. Enter the phone number and optional message (fields vertically aligned)
+3. Click "Generate Link & QR Code"
+4. Copy the link, download the QR code, or share directly
+- Notifications appear within the view
 
 ### Saving Your Preferences
 
@@ -60,9 +67,29 @@
 
 ---
 
+## Technologies
+Manifest V3: Current Chrome extensions standard
+
+Vanilla JavaScript (ES6+): No external frameworks
+
+QRCode.js: QR code generation
+
+Chrome Storage API: Data persistence
+
+---
+
 ## License
 
 This project is licensed under the APACHE [License](LICENSE).
+
+---
+
+## Privacy
+This extension:
+- Does not collect personal data
+- Only stores settings and history locally
+- Does not perform tracking or show ads
+- Works completely offline (except for opening WhatsApp)
 
 ---
 
