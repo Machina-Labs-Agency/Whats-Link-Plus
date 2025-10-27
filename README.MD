@@ -51,7 +51,7 @@
 4. Click "Send Message"
 - Receive visual feedback within the view itself if there are errors
 
-## Link & QR Code Generator
+### Link & QR Code Generator
 1. Select "Link Generator" from the side navigation
 2. Enter the phone number and optional message (fields vertically aligned)
 3. Click "Generate Link & QR Code"
@@ -67,14 +67,11 @@
 
 ---
 
-## Technologies
-Manifest V3: Current Chrome extensions standard
-
-Vanilla JavaScript (ES6+): No external frameworks
-
-QRCode.js: QR code generation
-
-Chrome Storage API: Data persistence
+### Technologies
+- Manifest V3: Current Chrome extensions standard
+- Vanilla JavaScript (ES6+): No external frameworks
+- QRCode.js: QR code generation
+- Chrome Storage API: Data persistence
 
 ---
 
