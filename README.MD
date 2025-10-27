@@ -90,6 +90,9 @@ This extension:
 
 ---
 
+## Issues
+Found a bug or have a feature idea? Open an issue right here in [this repo.](https://github.com/Machina-Labs-Agency/Whats-Link-Plus/issues)
+
 ## Disclaimer
 
 This is an independent project and is not officially affiliated with WhatsApp or Meta. Please read the full [Legal Disclaimer](DISCLAIMER.md).
