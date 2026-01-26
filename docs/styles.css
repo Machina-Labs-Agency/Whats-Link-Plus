@@ -6,41 +6,70 @@
     --accent-red: #ff6b6b;
     --accent-red-dark: #ff5252;
 
-    /* Neutral Colors */
+    /* Neutral Colors - Dark Mode Base */
     --neutral-900: #0a0a0a;
+    /* Main Background */
     --neutral-800: #1a1a1a;
+    /* Secondary Background / Cards */
     --neutral-700: #2a2a2a;
+    /* Borders */
     --neutral-600: #3a3a3a;
+    /* Subtle Borders / Disabled */
     --neutral-500: #6b7280;
+    /* Secondary Text */
     --neutral-400: #9ca3af;
+    /* Tertiary Text */
     --neutral-300: #d1d5db;
+    /* Body Text */
     --neutral-200: #e5e7eb;
+    /* Light Text */
     --neutral-100: #f3f4f6;
+    /* Accent BG (rarely used in dark mode) */
     --white: #ffffff;
 
     /* Typography */
-    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* Spacing Scale - UI/UX Best Practices */
-    --space-1: 0.25rem;  /* 4px */
-    --space-2: 0.5rem;   /* 8px */
-    --space-3: 0.75rem;  /* 12px */
-    --space-4: 1rem;     /* 16px */
-    --space-5: 1.25rem;  /* 20px */
-    --space-6: 1.5rem;   /* 24px */
-    --space-8: 2rem;     /* 32px */
-    --space-10: 2.5rem;  /* 40px */
-    --space-12: 3rem;    /* 48px */
-    --space-16: 4rem;    /* 64px */
-    --space-20: 5rem;    /* 80px */
-    --space-24: 6rem;    /* 96px */
+    /* Spacing Scale */
+    --space-1: 0.25rem;
+    /* 4px */
+    --space-2: 0.5rem;
+    /* 8px */
+    --space-3: 0.75rem;
+    /* 12px */
+    --space-4: 1rem;
+    /* 16px */
+    --space-5: 1.25rem;
+    /* 20px */
+    --space-6: 1.5rem;
+    /* 24px */
+    --space-8: 2rem;
+    /* 32px */
+    --space-10: 2.5rem;
+    /* 40px */
+    --space-12: 3rem;
+    /* 48px */
+    --space-16: 4rem;
+    /* 64px */
+    --space-20: 5rem;
+    /* 80px */
+    --space-24: 6rem;
+    /* 96px */
 
-    /* Layout Spacing */
+    /* Layout */
     --header-height: 80px;
     --container-padding: var(--space-4);
-    --section-padding: var(--space-16);
+    --section-padding: var(--space-20);
     --card-padding: var(--space-8);
+
+    /* Shadows & Effects */
+    --glass-bg: rgba(26, 26, 26, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-backdrop: blur(12px);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 8px 32px rgba(37, 211, 102, 0.2);
 }
 
 * {
@@ -96,9 +125,11 @@ body {
 }
 
 .header.scrolled {
-    background-color: rgba(26, 26, 26, 0.95);
-    backdrop-filter: saturate(180%) blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: rgba(26, 26, 26, 0.85);
+    /* More transparency for glass effect */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .nav {
@@ -164,6 +195,7 @@ body {
     background: linear-gradient(135deg, var(--whatsapp-primary), var(--whatsapp-dark));
     color: var(--white);
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    border: 1px solid transparent;
 }
 
 .btn--secondary {
@@ -174,7 +206,8 @@ body {
 
 .btn--primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .btn--primary:active {
@@ -314,11 +347,14 @@ body {
     background-color: var(--neutral-800);
     padding: var(--card-padding);
     border-radius: var(--space-5);
+    /* 20px */
     text-align: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid var(--neutral-700);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    /* Interaction rule */
 }
 
 .feature-card::before {
@@ -327,16 +363,19 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 2px;
     background: linear-gradient(90deg, var(--whatsapp-primary), var(--whatsapp-dark));
     transform: scaleX(0);
-    transition: transform 0.3s ease;
+    transform-origin: left;
+    transition: transform 0.4s ease;
 }
 
 .feature-card:hover {
     transform: translateY(-8px);
     border-color: var(--whatsapp-primary);
-    box-shadow: 0 var(--space-4) var(--space-8) rgba(37, 211, 102, 0.15);
+    box-shadow: var(--shadow-glow);
+    background-color: var(--neutral-800);
+    /* Keep bg consistent */
 }
 
 .feature-card:hover::before {
@@ -554,13 +593,17 @@ body {
         --section-padding: var(--space-12);
         --card-padding: var(--space-6);
     }
+
     .page-wrapper {
-        padding-top: 68px; /* tamanho real header mobile aproximadamente */
+        padding-top: 68px;
+        /* tamanho real header mobile aproximadamente */
     }
+
     .header {
         padding: var(--space-3) 0;
         min-height: 56px;
     }
+
     .nav {
         flex-direction: column;
         gap: var(--space-4);
@@ -572,7 +615,8 @@ body {
     }
 
     .hero {
-        padding: calc(var(--space-14) + 20px) 0 var(--space-20) 0; /* mais espaço no topo pra garantir */
+        padding: calc(var(--space-14) + 20px) 0 var(--space-20) 0;
+        /* mais espaço no topo pra garantir */
     }
 
     .container {
@@ -633,9 +677,12 @@ body {
         --section-padding: var(--space-8);
         --card-padding: var(--space-5);
     }
+
     .page-wrapper {
-        padding-top: 56px; /* header mínimo mobile estreito */
+        padding-top: 56px;
+        /* header mínimo mobile estreito */
     }
+
     .hero {
         padding: calc(var(--space-12) + 24px) 0 var(--space-16) 0;
     }
@@ -679,7 +726,7 @@ body {
         flex-direction: column;
         gap: var(--space-3);
     }
-} 
+}
 
 /* Accessibility and Focus States */
 .btn:focus,
@@ -690,6 +737,7 @@ body {
 
 /* Print Styles */
 @media print {
+
     .header,
     .btn,
     .footer {
@@ -706,40 +754,45 @@ body {
         border-bottom: 2px solid #000;
         padding-bottom: 10px;
     }
-} 
+}
 
 .faq {
     background: var(--neutral-800);
     padding: var(--space-20) 0;
-  }
-  .faq-grid {
+}
+
+.faq-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: var(--space-8);
     margin-top: var(--space-10);
-  }
-  .faq-item {
+}
+
+.faq-item {
     background: var(--neutral-900);
     border-radius: var(--space-3);
     padding: var(--space-6);
     border: 1px solid var(--neutral-700);
     box-shadow: 0 2px 8px rgba(37, 211, 102, 0.08);
     transition: box-shadow .2s;
-  }
-  .faq-item:hover {
+}
+
+.faq-item:hover {
     box-shadow: 0 4px 16px rgba(37, 211, 102, 0.18);
-  }
-  .faq-question {
+}
+
+.faq-question {
     font-size: 1.13rem;
     font-weight: 600;
     color: var(--whatsapp-primary);
     margin-bottom: var(--space-2);
-  }
-  .faq-answer {
+}
+
+.faq-answer {
     color: var(--neutral-300);
     font-size: 1rem;
     line-height: 1.5;
-  }
+}
 
 /* ========================================
    HIGH CONVERSION ELEMENTS
@@ -846,11 +899,25 @@ body {
     animation: star-pulse 2s ease-in-out infinite;
 }
 
-.star:nth-child(1) { animation-delay: 0s; }
-.star:nth-child(2) { animation-delay: 0.1s; }
-.star:nth-child(3) { animation-delay: 0.2s; }
-.star:nth-child(4) { animation-delay: 0.3s; }
-.star:nth-child(5) { animation-delay: 0.4s; }
+.star:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.star:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.star:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.star:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.star:nth-child(5) {
+    animation-delay: 0.4s;
+}
 
 .rating-text {
     color: var(--neutral-300);
@@ -1268,28 +1335,37 @@ body {
    ======================================== */
 
 @keyframes pulse-glow {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
     }
+
     50% {
         box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
     }
 }
 
 @keyframes pulse-scale {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.03);
     }
 }
 
 @keyframes pulse-dot {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
         transform: scale(1);
     }
+
     50% {
         opacity: 0.5;
         transform: scale(1.2);
@@ -1297,27 +1373,36 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-15px);
     }
 }
 
 @keyframes star-pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.6;
     }
@@ -1328,6 +1413,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
