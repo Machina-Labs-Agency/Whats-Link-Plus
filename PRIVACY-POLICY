@@ -1,96 +1,63 @@
-# Whats Link+: WA Easy Direct Message and QR Code Privacy Policy
+Privacy Policy for WhatsLink+
+Last Updated: January 25, 2026
 
-**Last Updated: October 22, 2025**
+1. Introduction
+At WhatsLink+, your privacy is our highest priority. We believe in a transparent, "local-first" approach to software. This Privacy Policy explains how WhatsLink+ handling your data, why we require specific permissions, and how we protect your information.
 
-This Privacy Policy outlines how the Whats Link+: WA Easy Direct Message and QR Code extension ("we," "us," or "our") collects, uses, protects, and shares your data. Our goal is to ensure transparency and safeguard your privacy while enabling the extension’s functionality.
+The Bottom Line: WhatsLink+ does not collect, sell, or transmit your personal data, phone numbers, or messages to external servers. All operations happen directly on your device.
 
----
+1. Data Collection and Usage
+WhatsLink+ operates as a standalone client-side extension.
 
-## 1. Data We Collect
+A. Personal Information
+We do not collect personal identification information (names, email addresses, etc.).
 
-We collect only what is necessary for the extension to function. All data is stored locally in your browser.
+Phone Numbers: When you enter a phone number to send a message, it is processed locally to generate a WhatsApp link.
+Recent Numbers: To improve your experience, the last 5 numbers you utilized are saved locally on your device using Chrome's Sync Storage. These are never shared with us.
+B. Message Content
+We do not have access to, read, or store your messages.
 
-- **User Settings**: Your default country code (e.g., "+1") and preferred service ("App" vs. "Web"). This is needed to configure the extension to your preferences.
-- **Recent Numbers**: The last five phone numbers you have used with the extension. This is used to provide you with quick-access shortcuts.
-- **Technical Data**: We do **not** collect any technical data like browser version, IP address, or error logs.
+The "Pre-filled Message" feature generates a URL parameter. The actual message sending happens entirely within the official WhatsApp interface (Web or App).
+C. Usage Analytics
+We do not use third-party analytics software (like Google Analytics or Mixpanel) to track your usage behavior inside the extension.
 
-We do not collect personal info (e.g., name or email) as the extension has no user accounts or analytics.
+1. Permissions Explained
+To function correctly, WhatsLink+ requires specific browser permissions. Here is a breakdown of why each is necessary:
 
----
+Permission Purpose
+Storage Used to save your preferences (e.g., Default Country, Theme), your configured "Privacy Blur" settings, and your locally stored history of recent numbers.
+Tabs Required to open the official api.whatsapp.com or web.whatsapp.com links in a new browser tab when you click "Send".
+ActiveTab / Host Permissions Required for two features: 1. Context Menu: To read the phone number you highlighted when you right-click on a webpage.2. Privacy Functions: To inject the CSS filters that blur content on web.whatsapp.com.
+Context Menus Adds the "Send to..." option when you right-click selected text on a webpage.
+Notifications Used to provide system feedback (e.g., "Link copied to clipboard", "Invalid Number") and occasional review reminders.
+Alarms Used to schedule low-priority background tasks, such as the weekly check for the review reminder, ensuring the extension doesn't consume resources when not in use.
+4. Privacy Blur Features
+WhatsLink+ includes features to blur sensitive information on WhatsApp Web.
 
-## 2. How We Use Your Data
+How it works: This feature uses CSS (Cascading Style Sheets) injection. It strictly modifies the visual presentation of the page locally in your browser.
+Data Safety: The extension cannot read the content beneath the blur. It purely applies a visual filter overlay.
+5. Data Storage and Security
+All settings and history are stored effectively in chrome.storage.sync or chrome.storage.local.
 
-Your data is used solely to:
-- Configure the extension’s default settings.
-- Populate the "Recent Numbers" list for your convenience.
-- Generate links and QR codes based on your input.
+Sync: If you are signed into Chrome, your settings (like your default country code) may assume the security of your Google Account to sync across your devices.
+Security: Since we do not maintain external servers, there is no central database of user data that can be breached. Your data stays on your machine.
+6. Third-Party Services
+WhatsLink+ acts as a bridge to WhatsApp (owned by Meta Platforms, Inc.).
 
-We do **not** use your data for ads or sell it to anyone.
+When you click "Send" or scan a QR Code, you are redirected to WhatsApp.
+Once you leave the extension and enter the WhatsApp platform, you are subject to WhatsApp's Privacy Policy.
+7. Compliance
+Chrome Web Store User Data Policy
+We adhere strictly to the Google Chrome Web Store User Data Policy. We strictly limit our use of permissions to the core functionality of the extension.
 
----
+GDPR / CCPA
+Since we do not collect, process, or store personal data on our servers, WhatsLink+ is privacy-compliant by design. You retain full control and ownership of your data on your device.
 
-## 3. Data Sharing
+1. Changes to This Policy
+We may update our Privacy Policy from time to time. We will notify you of any distinct changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
 
-We do not share your data with any third parties.
+2. Contact Us
+If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:
 
-- **With WhatsApp/Meta**: The only external communication occurs when you initiate an action (like clicking "Send Message" or a generated link), which sends the phone number and optional message to WhatsApp's official servers to open a chat. This is a user-initiated action and essential for the service to function.
-
-No other parties get your data—no analytics, no marketers.
-
----
-
-## 4. Data Security
-
-We protect your data with:
-- **Secure Local Storage**: All settings and recent numbers are stored securely in your browser's `chrome.storage.sync` area.
-- **In-Memory Processing**: Phone numbers and messages you enter are processed in the moment to generate links and are not stored, except for the "Recent Numbers" feature.
-
-No system is 100% secure, but we take every reasonable step to keep your data safe within your browser's secure environment.
-
----
-
-## 5. Web Browsing Activity
-
-The extension does **not** monitor, access, or track your web browsing activity on any website. It only acts on phone numbers you manually select or type into the popup.
-
----
-
-## 6. Your Rights
-
-You have full control over your data:
-- **Manage**: You can view and change your default settings at any time in the extension’s popup.
-- **Delete**: You can clear your "Recent Numbers" and settings by clearing your browser's extension data or by reinstalling the extension.
-- **Stop**: Uninstall the extension to end all data collection and remove all stored data.
-
----
-
-## 7. Data Retention
-
-We keep data only as long as the extension is installed:
-- **Settings & Recent Numbers**: Stored as long as the extension is installed, or until you clear the data.
-- **Input Data**: Phone numbers and messages are processed in the moment and are not retained, except for the "Recent Numbers" list.
-
----
-
-## 8. Limited Use Compliance
-
-The extension's use of information adheres to the Chrome Web Store’s Limited Use rules:
-- Data is used only for providing and improving the extension’s core user-facing features.
-- Data is never sold to third parties, used for advertising, or for credit-related purposes.
-- Data is never transferred to other parties, except when initiated by the user to open a chat on WhatsApp's official domains.
-
----
-
-## 9. Policy Updates
-
-We may revise this policy as needed. We will post any updates here, linked in the extension's popup and on its Chrome Web Store page.
-
----
-
-## 10. Contact Us
-
-If you have questions or requests, you can reach us at:
-- **Email**: contato@tuliosousa.pro
-
-
-**By using Whats Link+: WA Easy Direct Message and QR Code, you accept this policy. If you disagree, please do not use the extension.**
+Support Email: <contact@tuliosousa.pro>
+Repository: <https://github.com/Machina-Labs-Agency/Whats-Link-Plus>
