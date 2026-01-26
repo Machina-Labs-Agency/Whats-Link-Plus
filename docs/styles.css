@@ -740,3 +740,696 @@ body {
     font-size: 1rem;
     line-height: 1.5;
   }
+
+/* ========================================
+   HIGH CONVERSION ELEMENTS
+   ======================================== */
+
+/* Sticky CTA Bar */
+.sticky-cta {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: linear-gradient(135deg, var(--whatsapp-dark), var(--whatsapp-deeper));
+    padding: var(--space-4) 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sticky-cta.visible {
+    transform: translateY(0);
+}
+
+.sticky-cta__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.sticky-cta__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.sticky-cta__text strong {
+    color: var(--whatsapp-primary);
+    font-size: 1.1rem;
+}
+
+.sticky-cta__text span {
+    color: var(--neutral-200);
+    font-size: 0.9rem;
+}
+
+.btn--cta {
+    white-space: nowrap;
+    animation: pulse-glow 2s infinite;
+}
+
+/* Hero Badges */
+.hero__badges {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-4);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badge--green {
+    background: rgba(37, 211, 102, 0.15);
+    color: var(--whatsapp-primary);
+    border: 1px solid var(--whatsapp-primary);
+}
+
+.badge--blue {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border: 1px solid #3b82f6;
+}
+
+.badge--purple {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+    border: 1px solid #a855f7;
+}
+
+/* Rating Stars */
+.hero__rating {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+}
+
+.rating-stars {
+    display: flex;
+    gap: var(--space-1);
+}
+
+.star {
+    color: #fbbf24;
+    font-size: 1.25rem;
+    animation: star-pulse 2s ease-in-out infinite;
+}
+
+.star:nth-child(1) { animation-delay: 0s; }
+.star:nth-child(2) { animation-delay: 0.1s; }
+.star:nth-child(3) { animation-delay: 0.2s; }
+.star:nth-child(4) { animation-delay: 0.3s; }
+.star:nth-child(5) { animation-delay: 0.4s; }
+
+.rating-text {
+    color: var(--neutral-300);
+    font-size: 0.95rem;
+}
+
+/* Enhanced CTA Buttons */
+.btn__icon {
+    font-size: 1.2em;
+    margin-right: var(--space-2);
+}
+
+.btn__arrow {
+    margin-left: var(--space-2);
+    transition: transform 0.3s;
+}
+
+.btn:hover .btn__arrow {
+    transform: translateX(4px);
+}
+
+.btn--pulse {
+    animation: pulse-scale 2s ease-in-out infinite;
+}
+
+.cta-subtext {
+    margin-top: var(--space-3);
+    color: var(--neutral-400);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Social Proof Live Counter */
+.social-proof__live {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-6);
+    background: rgba(37, 211, 102, 0.1);
+    border: 1px solid var(--whatsapp-primary);
+    border-radius: var(--space-3);
+    margin-top: var(--space-6);
+}
+
+.live-indicator {
+    width: 10px;
+    height: 10px;
+    background: var(--whatsapp-primary);
+    border-radius: 50%;
+    animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.live-text {
+    color: var(--neutral-200);
+    font-size: 0.95rem;
+}
+
+/* Visual Badge on Image */
+.visual-wrapper {
+    position: relative;
+}
+
+.visual-badge {
+    position: absolute;
+    top: var(--space-6);
+    right: var(--space-6);
+    background: linear-gradient(135deg, var(--whatsapp-primary), var(--whatsapp-dark));
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--space-4);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    animation: float 3s ease-in-out infinite;
+}
+
+.badge-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+}
+
+.badge-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Pain Points Section */
+.pain-points {
+    background: var(--neutral-100);
+    padding: var(--space-20) 0;
+}
+
+.section-title--dark {
+    color: var(--neutral-900);
+}
+
+.pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+    margin: var(--space-12) 0;
+}
+
+.pain-card {
+    background: var(--white);
+    padding: var(--space-8);
+    border-radius: var(--space-4);
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.pain-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: var(--accent-red);
+}
+
+.pain-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: var(--space-4);
+}
+
+.pain-card h3 {
+    color: var(--neutral-900);
+    font-size: 1.25rem;
+    margin-bottom: var(--space-3);
+}
+
+.pain-card p {
+    color: var(--neutral-600);
+    line-height: 1.6;
+}
+
+.pain-cta {
+    text-align: center;
+    margin-top: var(--space-12);
+}
+
+/* Comparison Section */
+.comparison {
+    background: var(--neutral-800);
+    padding: var(--space-20) 0;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+    margin: var(--space-12) 0;
+}
+
+.comparison-card {
+    background: var(--neutral-900);
+    padding: var(--space-8);
+    border-radius: var(--space-5);
+    border: 2px solid var(--neutral-700);
+    transition: all 0.3s;
+}
+
+.comparison-card--before {
+    border-color: var(--accent-red);
+}
+
+.comparison-card--after {
+    border-color: var(--whatsapp-primary);
+    background: linear-gradient(135deg, var(--neutral-900), var(--neutral-800));
+}
+
+.comparison-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+.comparison-icon {
+    font-size: 3rem;
+}
+
+.comparison-header h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.comparison-list {
+    list-style: none;
+    margin-bottom: var(--space-6);
+}
+
+.comparison-list li {
+    color: var(--neutral-300);
+    padding: var(--space-3) 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--neutral-700);
+}
+
+.comparison-list li:last-child {
+    border-bottom: none;
+}
+
+.comparison-time {
+    background: rgba(255, 107, 107, 0.15);
+    color: var(--accent-red);
+    padding: var(--space-4);
+    border-radius: var(--space-3);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.comparison-time--saved {
+    background: rgba(37, 211, 102, 0.15);
+    color: var(--whatsapp-primary);
+    animation: pulse-glow 2s infinite;
+}
+
+.comparison-cta {
+    text-align: center;
+    margin-top: var(--space-12);
+}
+
+/* Enhanced Testimonials */
+.testimonial-card--featured {
+    border-color: var(--whatsapp-primary);
+    background: linear-gradient(135deg, var(--neutral-900), var(--neutral-800));
+}
+
+.testimonial-rating {
+    display: flex;
+    gap: var(--space-1);
+    margin-bottom: var(--space-4);
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.author-name {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.author-role {
+    color: var(--neutral-400);
+    font-size: 0.9rem;
+}
+
+.author-badge {
+    color: var(--whatsapp-primary);
+    font-size: 0.85rem;
+}
+
+.testimonials-cta {
+    text-align: center;
+    margin-top: var(--space-12);
+}
+
+.testimonials-cta-text {
+    color: var(--neutral-300);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-6);
+}
+
+/* Use Cases Section */
+.use-cases {
+    background: var(--neutral-100);
+    padding: var(--space-20) 0;
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+}
+
+.use-case-card {
+    background: var(--white);
+    padding: var(--space-8);
+    border-radius: var(--space-4);
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.use-case-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.2);
+    border-color: var(--whatsapp-primary);
+}
+
+.use-case-icon {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: var(--space-4);
+}
+
+.use-case-card h3 {
+    color: var(--neutral-900);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+}
+
+.use-case-card p {
+    color: var(--neutral-600);
+    line-height: 1.6;
+}
+
+/* Enhanced CTA Final */
+.cta-final-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-final-icon {
+    font-size: 5rem;
+    margin-bottom: var(--space-6);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.cta-final-features {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+    margin: var(--space-10) 0;
+}
+
+.cta-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--whatsapp-primary);
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.cta-feature-icon {
+    font-size: 1.5rem;
+}
+
+.cta-guarantee {
+    margin-top: var(--space-4);
+    color: var(--neutral-400);
+    font-size: 0.95rem;
+}
+
+.cta-urgency {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+    padding: var(--space-4) var(--space-6);
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid var(--accent-red);
+    border-radius: var(--space-3);
+    color: var(--accent-red);
+    font-weight: 600;
+}
+
+.urgency-icon {
+    font-size: 1.5rem;
+}
+
+/* Feature Card Enhancements */
+.feature-card--highlighted {
+    border-color: var(--whatsapp-primary);
+    background: linear-gradient(135deg, var(--neutral-800), var(--neutral-700));
+    position: relative;
+}
+
+.feature-card__badge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: var(--whatsapp-primary);
+    color: var(--white);
+    padding: var(--space-1) var(--space-3);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.feature-card__benefit {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--neutral-700);
+    color: var(--whatsapp-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
+    }
+}
+
+@keyframes pulse-scale {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+@keyframes pulse-dot {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes star-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    animation: slide-up 0.6s ease-out forwards;
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS FOR NEW ELEMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+    .sticky-cta__content {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-4);
+    }
+
+    .hero__badges {
+        justify-content: center;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        padding: var(--space-1) var(--space-3);
+    }
+
+    .hero__rating {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .visual-badge {
+        top: var(--space-3);
+        right: var(--space-3);
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .badge-number {
+        font-size: 1.5rem;
+    }
+
+    .badge-label {
+        font-size: 0.7rem;
+    }
+
+    .pain-grid,
+    .comparison-grid,
+    .use-cases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-final-features {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    .cta-urgency {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .comparison-list li {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-cta {
+        padding: var(--space-3) 0;
+    }
+
+    .sticky-cta__text strong {
+        font-size: 1rem;
+    }
+
+    .sticky-cta__text span {
+        font-size: 0.8rem;
+    }
+
+    .hero__badges {
+        gap: var(--space-2);
+    }
+
+    .social-proof__live {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cta-final-icon {
+        font-size: 3.5rem;
+    }
+
+    .pain-icon,
+    .use-case-icon {
+        font-size: 3rem;
+    }
+
+    .comparison-icon {
+        font-size: 2.5rem;
+    }
+}
