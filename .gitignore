@@ -12,3 +12,9 @@ build/
 .DS_Store
 Assets/brand_identity_markdown.md
 Assets/backup_en-us
+
+# Agent & Shared
+.agent/workflows
+.shared/ui-ux-pro-max/data
+.shared/ui-ux-pro-max/scripts/core.py
+.shared/ui-ux-pro-max/scripts/search.py
