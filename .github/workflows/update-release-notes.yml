@@ -1,0 +1,74 @@
+name: Update Release Notes JSON
+
+on:
+  push:
+    paths:
+      - 'Release Notes/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Generate release_notes.json
+        run: |
+          # Create a Python script specifically for this action step to run in the runner
+          cat <<EOF > generate_notes.py
+          import os
+          import json
+          from datetime import datetime
+          
+          NOTES_DIR = "Release Notes"
+          OUTPUT_FILE = "docs/release_notes.json"
+          
+          def get_release_notes():
+              notes = []
+              if not os.path.exists(NOTES_DIR):
+                  print(f"Directory not found: {NOTES_DIR}")
+                  return []
+          
+              for filename in os.listdir(NOTES_DIR):
+                  if filename.endswith(".md") or filename.endswith(".MD"):
+                      # Try to parse date from filename (YYYY-MM-DD)
+                      date_str = filename.replace(".md", "").replace(".MD", "")
+                      try:
+                          date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+                          formatted_date = date_obj.strftime("%d/%m/%Y")
+                      except ValueError:
+                          continue
+          
+                      # Link to GitHub blob
+                      github_url = f"https://github.com/${{ github.repository }}/blob/main/Release%20Notes/{filename}"
+                      
+                      notes.append({
+                          "date": formatted_date,
+                          "version": date_str,
+                          "url": github_url,
+                          "raw_date": date_obj.timestamp()
+                      })
+          
+              # Sort by date descending
+              notes.sort(key=lambda x: x["raw_date"], reverse=True)
+              return notes
+          
+          if __name__ == "__main__":
+              notes = get_release_notes()
+              with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+                  json.dump(notes, f, indent=2, ensure_ascii=False)
+              print(f"Generated {len(notes)} notes")
+          EOF
+          
+          python3 generate_notes.py
+          rm generate_notes.py
+
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update release_notes.json [skip ci]"
+          file_pattern: docs/release_notes.json

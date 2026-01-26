@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -23,6 +23,7 @@
 </head>
 
 <body>
+    <div class="noise-overlay"></div>
     <div class="page-wrapper">
         <header class="header">
             <div class="container">
@@ -51,7 +52,7 @@
                             <span>Instale agora e economize horas todos os dias</span>
                         </div>
                         <a href="https://chromewebstore.google.com/detail/whats-link+-wa-mensagem-d/gnghccpamhlpcjdlcockcdgboodafnak?authuser=0&hl=pt-BR?utm_source=landing-page&utm_medium=cpc&utm_term=extension&utm_content=sticky-cta"
-                            class="btn btn--primary btn--cta">
+                            class="btn btn--primary btn--cta neon-glow">
                             Instalar Agora <i class="ph ph-rocket-launch"></i>
                         </a>
                     </div>
@@ -59,64 +60,81 @@
             </div>
 
             <section class="hero">
+                <div class="glow-spot top-left"></div>
+                <div class="glow-spot bottom-right"></div>
+
                 <div class="container">
                     <div class="hero__content">
                         <div class="hero__text">
                             <!-- Trust Badges -->
                             <div class="hero__badges">
                                 <span class="badge badge--green"><i class="ph ph-check-circle"></i> 100% Gratuito</span>
-                                <span class="badge badge--blue"><i class="ph ph-clock"></i> Instalação em 30
-                                    Segundos</span>
-                                <span class="badge badge--purple"><i class="ph ph-shield-check"></i> Sem Cadastro</span>
+                                <span class="badge badge--blue"><i class="ph ph-shield-check"></i> Privacidade
+                                    Total</span>
                             </div>
 
-                            <h1 class="hero__title">Envie Mensagens no WhatsApp Sem Salvar Contatos</h1>
-                            <p class="hero__subtitle">Pare de perder tempo salvando contatos. Com Whats Link+, crie
-                                links diretos do WhatsApp, gere QR codes e envie mensagens em apenas 1 clique.</p>
-
-                            <!-- Rating Stars -->
-                            <div class="hero__rating">
-                                <div class="rating-stars">
-                                    <i class="ph-fill ph-star star"></i>
-                                    <i class="ph-fill ph-star star"></i>
-                                    <i class="ph-fill ph-star star"></i>
-                                    <i class="ph-fill ph-star star"></i>
-                                    <i class="ph-fill ph-star star"></i>
-                                </div>
-                                <span class="rating-text"><strong>4,9/5</strong> de 5.000+ usuários satisfeitos</span>
-                            </div>
+                            <h1 class="hero__title">O WhatsApp Web, com <span class="text-gradient">Superpoderes.</span>
+                            </h1>
+                            <p class="hero__subtitle">Pare de perder tempo salvando contatos inúteis. Fale com <span
+                                    class="typewriter-text"
+                                    data-words='["Clientes", "Leads", "Entregadores", "Qualquer Um"]'></span> em 1
+                                clique, direto do navegador.</p>
 
                             <div class="hero__cta">
                                 <a href="https://chromewebstore.google.com/detail/whats-link+-wa-mensagem-d/gnghccpamhlpcjdlcockcdgboodafnak?authuser=0&hl=pt-BR?utm_source=landing-page&utm_medium=cpc&utm_term=extension&utm_content=hero-primary"
-                                    class="btn btn--primary btn--large btn--pulse">
-                                    <i class="ph ph-lightning btn__icon"></i>
-                                    Instalar Extensão Grátis
-                                    <i class="ph ph-arrow-right btn__arrow"></i>
+                                    class="btn btn--primary btn--large neon-glow">
+                                    <i class="ph ph-download-simple btn__icon"></i>
+                                    Adicionar ao Chrome
                                 </a>
-                                <p class="cta-subtext"><i class="ph ph-check"></i> Sem cartão de crédito • <i
-                                        class="ph ph-check"></i> Instalação instantânea</p>
+                                <a href="#features" class="btn btn--secondary btn--large">
+                                    <i class="ph ph-play-circle btn__icon"></i>
+                                    Ver Demo
+                                </a>
                             </div>
 
-                            <!-- Social Proof Counter -->
-                            <div class="hero__social-proof">
-                                <div class="social-proof__live">
-                                    <span class="live-indicator"></span>
-                                    <span class="live-text"><strong>+1.234</strong> pessoas instalaram nas últimas 30
-                                        dias</span>
-                                </div>
-                            </div>
+                            <p class="cta-subtext" style="opacity: 0.7; font-size: 0.9rem; margin-top: 1rem;">
+                                <i class="ph ph-users"></i> Junte-se a <strong>5.000+</strong> usuários inteligentes
+                            </p>
                         </div>
 
-                        <div class="hero__visual">
-                            <div class="visual-wrapper">
-                                <img src="https://raw.githubusercontent.com/Machina-Labs-Agency/Whats-Link-Plus/d54360d75a605ba1fa1bdc5ab22a68010449572f/Assets/Main-Banner-PT-BR.png"
-                                    alt="Screenshot da Extensão Whats Link+" loading="lazy">
-                                <div class="visual-badge">
-                                    <div class="badge-content">
-                                        <span class="badge-number">5.000+</span>
-                                        <span class="badge-label">Instalações</span>
-                                    </div>
+                        <!-- Live Demo Interactive Card -->
+                        <div class="hero-live-demo tilt-card" id="liveDemo">
+                            <div class="live-demo-header">
+                                <i class="ph-fill ph-whatsapp-logo"
+                                    style="color: var(--whatsapp-primary); font-size: 1.5rem;"></i>
+                                <div>
+                                    <div class="live-demo-title">Teste Agora (Simulação)</div>
+                                    <div style="font-size: 0.75rem; color: var(--neutral-400);">Gere links sem instalar
+                                        nada</div>
                                 </div>
+                                <div style="margin-left: auto;">
+                                    <span class="live-demo-badge">LIVE</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label class="input-label">Número do WhatsApp</label>
+                                <input type="text" class="input-field" id="demoPhone" placeholder="Ex: 11999998888">
+                            </div>
+
+                            <div class="input-group">
+                                <label class="input-label">Mensagem (Opcional)</label>
+                                <input type="text" class="input-field" id="demoMessage"
+                                    placeholder="Olá, gostaria de um orçamento...">
+                            </div>
+
+                            <button class="demo-btn" id="demoGenerateBtn">
+                                <i class="ph ph-paper-plane-right"></i> Gerar Link & Abrir
+                            </button>
+
+                            <div class="demo-result" id="demoResult">
+                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                    <i class="ph-fill ph-check-circle" style="color: var(--whatsapp-primary)"></i>
+                                    <strong style="color: var(--white)">Link Gerado!</strong>
+                                </div>
+                                <a href="#" target="_blank" class="result-link" id="demoLinkResult">wa.me/5511...</a>
+                                <p style="font-size: 0.8rem; color: var(--neutral-400);">Na extensão real, isso abre o
+                                    chat automaticamente!</p>
                             </div>
                         </div>
                     </div>
@@ -160,54 +178,58 @@
                         <p class="section-subtitle">Economize horas toda semana com recursos que realmente fazem
                             diferença</p>
                     </div>
-                    <div class="features__grid">
-                        <div class="feature-card feature-card--highlighted">
+                    <div class="features__grid bento-grid">
+                        <!-- Card 1: Main Value Prop (Wide) -->
+                        <div class="feature-card feature-card--highlighted tilt-card spotlight-card feature-wide">
                             <div class="feature-card__badge">Mais Popular</div>
                             <i class="ph ph-lightning feature-card__icon" aria-hidden="true"></i>
-                            <h3 class="feature-card__title">Mensagem Instantânea sem Salvar</h3>
-                            <p class="feature-card__description">Clique com botão direito em qualquer número e envie
-                                mensagem direto. Zero cadastros no seu celular.</p>
+                            <h3 class="feature-card__title">Mensagem Instantânea</h3>
+                            <p class="feature-card__description">Clique com botão direito ou use o popup para enviar
+                                mensagens sem salvar o contato. Simples e direto.</p>
                             <div class="feature-card__benefit"><i class="ph ph-lightbulb"></i> Economize 30 segundos por
                                 mensagem</div>
                         </div>
-                        <div class="feature-card">
-                            <i class="ph ph-link feature-card__icon"></i>
-                            <h3 class="feature-card__title">Gerador de Links e QR Codes</h3>
-                            <p class="feature-card__description">Crie links compartilháveis e QR codes profissionais em
-                                1 clique. Perfeito para cartões de visita e redes sociais.</p>
-                            <div class="feature-card__benefit"><i class="ph ph-trend-up"></i> Aumente suas conversões em
-                                40%</div>
+
+                        <!-- Card 2: Privacy (New Blur Features) -->
+                        <div class="feature-card tilt-card spotlight-card">
+                            <i class="ph ph-eye-slash feature-card__icon"></i>
+                            <h3 class="feature-card__title">Privacidade Avançada</h3>
+                            <p class="feature-card__description">Novo modo de privacidade: borre mensagens, nomes e
+                                fotos de perfil automaticamente para trabalhar em público com segurança.</p>
                         </div>
-                        <div class="feature-card">
-                            <i class="ph ph-device-mobile feature-card__icon"></i>
-                            <h3 class="feature-card__title">Funciona em Qualquer Lugar</h3>
-                            <p class="feature-card__description">WhatsApp Web ou App. Desktop ou Mobile. Você escolhe
-                                como quer abrir suas conversas.</p>
-                            <div class="feature-card__benefit"><i class="ph ph-check-circle"></i> Total flexibilidade
-                            </div>
+
+                        <!-- Card 3: Smart Sharing (New v2.6.0) -->
+                        <div class="feature-card tilt-card spotlight-card">
+                            <i class="ph ph-share-network feature-card__icon"></i>
+                            <h3 class="feature-card__title">Compartilhamento Smart</h3>
+                            <p class="feature-card__description">Compartilhe textos e links diretamente para X,
+                                LinkedIn, Instagram e Threads com 1 clique.</p>
                         </div>
-                        <div class="feature-card">
-                            <i class="ph ph-lock-key feature-card__icon"></i>
-                            <h3 class="feature-card__title">Privacidade Total Garantida</h3>
-                            <p class="feature-card__description">Zero rastreamento. Tudo fica no seu navegador. Não
-                                coletamos nem compartilhamos seus dados.</p>
-                            <div class="feature-card__benefit"><i class="ph ph-shield-check"></i> 100% seguro e privado
-                            </div>
+
+                        <!-- Card 4: Tab Management (New v2.6.0 - Wide) -->
+                        <div class="feature-card tilt-card spotlight-card feature-wide">
+                            <i class="ph ph-browsers feature-card__icon"></i>
+                            <h3 class="feature-card__title">Gestão Inteligente de Abas</h3>
+                            <p class="feature-card__description">O Whats Link+ detecta abas abertas e reutiliza a sessão
+                                existente. Diga adeus a dezenas de abas do WhatsApp duplicadas consumindo sua memória
+                                RAM.</p>
+                            <div class="feature-card__benefit"><i class="ph ph-cpu"></i> Menor uso de memória</div>
                         </div>
-                        <div class="feature-card">
-                            <i class="ph ph-globe feature-card__icon"></i>
-                            <h3 class="feature-card__title">Suporte Internacional</h3>
-                            <p class="feature-card__description">Detecta automaticamente códigos de país. Funciona com
-                                números do Brasil, EUA e mundo todo.</p>
-                            <div class="feature-card__benefit"><i class="ph ph-globe-hemisphere-west"></i> Global e
-                                inteligente</div>
+
+                        <!-- Card 5: Link Generator -->
+                        <div class="feature-card tilt-card spotlight-card">
+                            <i class="ph ph-qr-code feature-card__icon"></i>
+                            <h3 class="feature-card__title">Gerador de Links & QR</h3>
+                            <p class="feature-card__description">Crie links curtos (wa.me) e QR Codes profissionais
+                                personalizados para seu negócio.</p>
                         </div>
-                        <div class="feature-card">
-                            <i class="ph ph-floppy-disk feature-card__icon"></i>
-                            <h3 class="feature-card__title">Histórico de Números</h3>
-                            <p class="feature-card__description">Salva seus últimos 5 números usados para acesso rápido.
-                                Nunca mais digite o mesmo número duas vezes.</p>
-                            <div class="feature-card__benefit"><i class="ph ph-rocket"></i> Máxima produtividade</div>
+
+                        <!-- Card 6: History -->
+                        <div class="feature-card tilt-card spotlight-card">
+                            <i class="ph ph-clock-counter-clockwise feature-card__icon"></i>
+                            <h3 class="feature-card__title">Histórico Recente</h3>
+                            <p class="feature-card__description">Acesse rapidamente os últimos números utilizados sem
+                                precisar digitar novamente.</p>
                         </div>
                     </div>
                 </div>
@@ -455,7 +477,7 @@
 
                         <div class="cta-buttons">
                             <a href="https://chromewebstore.google.com/detail/whats-link+-wa-mensagem-d/gnghccpamhlpcjdlcockcdgboodafnak?authuser=0&hl=pt-BR?utm_source=landing-page&utm_medium=cpc&utm_term=extension&utm_content=final-cta"
-                                class="btn btn--primary btn--extra-large btn--pulse">
+                                class="btn btn--primary btn--extra-large neon-glow">
                                 Instalar Whats Link+ Grátis
                             </a>
                             <p class="cta-guarantee"><i class="ph ph-lock-key"></i> Mais de 5.000 usuários já confiam em
@@ -473,19 +495,41 @@
 
         <footer class="footer">
             <div class="container">
-                <div class="footer__content">
+                <div class="footer__grid">
+                    <!-- Column 1: Brand -->
+                    <div class="footer__col">
+                        <div class="footer__logo">
+                            <img src="https://raw.githubusercontent.com/Machina-Labs-Agency/Whats-Link-Plus/d54360d75a605ba1fa1bdc5ab22a68010449572f/Assets/icons/icon128.png"
+                                alt="Logo">
+                            <span>Whats Link+</span>
+                        </div>
+                        <p class="footer__desc">
+                            A ferramenta mais rápida para iniciar conversas no WhatsApp. Simples, segura e gratuita.
+                        </p>
+                    </div>
+
+                    <!-- Column 2: Quick Links -->
+                    <div class="footer__col">
+                        <h4 class="footer__title">Links Rápidos</h4>
+                        <ul class="footer__nav">
+                            <li><a href="release-notes.html">Notas de Versão <span
+                                        class="badge badge--small">Novo</span></a></li>
+                            <li><a href="https://github.com/Machina-Labs-Agency/Whats-Link-Plus">Código Fonte
+                                    (GitHub)</a></li>
+                            <li><a
+                                    href="https://chromewebstore.google.com/detail/whats-link+-wa-mensagem-d/gnghccpamhlpcjdlcockcdgboodafnak?authuser=0&hl=pt-BR">Chrome
+                                    Web Store</a></li>
+                            <li><a href="privacy-policy.html">Política de Privacidade</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__bottom">
                     <p class="footer__copyright">
                         Desenvolvido com <i class="ph-fill ph-heart"
                             style="color: var(--accent-red); vertical-align: middle;"></i> por <a
                             href="https://github.com/Machina-Labs-Agency">Machina Labs Agency</a>
                     </p>
-                    <div class="footer__links">
-                        <a href="https://github.com/Machina-Labs-Agency/Whats-Link-Plus">GitHub</a>
-                        <a
-                            href="https://chromewebstore.google.com/detail/whats-link+-wa-mensagem-d/gnghccpamhlpcjdlcockcdgboodafnak?authuser=0&hl=pt-BR?utm_source=landing-page&utm_medium=cpc&utm_term=extension&utm_content=textlink">Chrome
-                            Web Store</a>
-                        <a href="privacy-policy.html">Política de Privacidade</a>
-                    </div>
                 </div>
             </div>
         </footer>
@@ -549,6 +593,140 @@
         document.querySelectorAll('.feature-card, .pain-card, .testimonial-card, .use-case-card').forEach(card => {
             observer.observe(card);
         });
+
+        // 3D Tilt Effect + Spotlight logic
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // Set CSS variables for spotlight
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -5; // Reduced rotation for subtlety
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            });
+        });
+
+        // Typewriter Effect
+        class Typewriter {
+            constructor(element, words, wait = 3000) {
+                this.element = element;
+                this.words = JSON.parse(words);
+                this.txt = '';
+                this.wordIndex = 0;
+                this.wait = parseInt(wait, 10);
+                this.type();
+                this.isDeleting = false;
+            }
+
+            type() {
+                const current = this.wordIndex % this.words.length;
+                const fullTxt = this.words[current];
+
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                this.element.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+                let typeSpeed = 100;
+
+                if (this.isDeleting) {
+                    typeSpeed /= 2;
+                }
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    typeSpeed = this.wait;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.wordIndex++;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(() => this.type(), typeSpeed);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+
+        function init() {
+            const txtElement = document.querySelector('.typewriter-text');
+            const words = txtElement.getAttribute('data-words');
+            new Typewriter(txtElement, words);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            init();
+        });
+
+        // Mouse Parallax for Hero Particles
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+
+            const particles = document.querySelectorAll('.floating-particle');
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 20;
+                const x = (window.innerWidth - e.pageX * speed) / 100;
+                const y = (window.innerHeight - e.pageY * speed) / 100;
+
+                particle.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        });
+
+        // Try It Live Functionality
+        const demoBtn = document.getElementById('demoGenerateBtn');
+        const demoPhone = document.getElementById('demoPhone');
+        const demoMessage = document.getElementById('demoMessage');
+        const demoResult = document.getElementById('demoResult');
+        const demoLinkResult = document.getElementById('demoLinkResult');
+
+        if (demoBtn) {
+            demoBtn.addEventListener('click', () => {
+                const phone = demoPhone.value.replace(/\D/g, '');
+                const msg = encodeURIComponent(demoMessage.value);
+
+                if (phone.length < 8) {
+                    alert('Por favor, digite um número válido.');
+                    return;
+                }
+
+                const link = `https://wa.me/${phone}?text=${msg}`;
+
+                // Show result
+                demoLinkResult.textContent = `wa.me/${phone}`;
+                demoLinkResult.href = link;
+                demoResult.classList.add('active');
+
+                // Button effect
+                demoBtn.innerHTML = '<i class="ph ph-check"></i> Aberto em nova aba!';
+                demoBtn.style.background = '#128c7e';
+
+                setTimeout(() => {
+                    window.open(link, '_blank');
+                    // Reset button
+                    setTimeout(() => {
+                        demoBtn.innerHTML = '<i class="ph ph-paper-plane-right"></i> Gerar Link & Abrir';
+                        demoBtn.style.background = '';
+                    }, 2000);
+                }, 500);
+            });
+        }
 
     </script>
 </body>
