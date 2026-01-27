@@ -86,10 +86,10 @@
                                     <i class="ph ph-download-simple btn__icon"></i>
                                     Adicionar ao Chrome
                                 </a>
-                                <a href="#features" class="btn btn--secondary btn--large">
+                                <button class="btn btn--secondary btn--large" onclick="openVideoModal()">
                                     <i class="ph ph-play-circle btn__icon"></i>
                                     Ver Demo
-                                </a>
+                                </button>
                             </div>
 
                             <p class="cta-subtext" style="opacity: 0.7; font-size: 0.9rem; margin-top: 1rem;">
@@ -537,6 +537,17 @@
 
 
 
+    <div class="video-modal-overlay" id="videoModal" onclick="closeVideoModal()">
+        <div class="video-modal-content" onclick="event.stopPropagation()">
+            <button class="video-modal-close" onclick="closeVideoModal()"><i class="ph ph-x"></i></button>
+            <div class="video-wrapper">
+                <iframe id="youtubeFrame" width="100%" height="100%" src="" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Smooth scroll for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -727,6 +738,34 @@
                 }, 500);
             });
         }
+
+        // --- Video Modal Logic ---
+        const videoModal = document.getElementById('videoModal');
+        const youtubeFrame = document.getElementById('youtubeFrame');
+        const VIDEO_ID = '5ZXDXD6PonQ'; // Real Demo Video
+
+        function openVideoModal() {
+            if (!videoModal) return;
+            videoModal.classList.add('active');
+            // Auto-play when opening
+            youtubeFrame.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0`;
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeVideoModal() {
+            if (!videoModal) return;
+            videoModal.classList.remove('active');
+            // Stop video by resetting src
+            youtubeFrame.src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                closeVideoModal();
+            }
+        });
 
     </script>
 </body>
