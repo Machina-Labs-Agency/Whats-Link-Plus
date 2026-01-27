@@ -20,3 +20,5 @@ Assets/backup_en-us
 .shared/ui-ux-pro-max/data
 .shared/ui-ux-pro-max/scripts/core.py
 .shared/ui-ux-pro-max/scripts/search.py
+docs/BRAND_IDENTITY.md
+docs/DESIGN_DOCUMENTATION.md
