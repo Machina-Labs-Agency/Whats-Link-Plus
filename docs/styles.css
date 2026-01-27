@@ -236,6 +236,41 @@ body {
     min-height: var(--space-16);
 }
 
+/* Button Shimmer Effect */
+.btn-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg) translateX(-150%);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: skewX(-20deg) translateX(-150%);
+    }
+
+    20% {
+        transform: skewX(-20deg) translateX(150%);
+    }
+
+    100% {
+        transform: skewX(-20deg) translateX(150%);
+    }
+}
+
 /* Hero Section Redesign */
 .hero {
     padding: calc(var(--header-height) + var(--space-12)) 0 var(--space-20) 0;
@@ -302,9 +337,12 @@ body {
 .hero__content {
     display: flex;
     align-items: center;
-    gap: var(--space-16);
+    gap: var(--space-12);
+    /* Slightly reduced gap for better fit */
     position: relative;
     z-index: 2;
+    min-height: calc(100vh - 120px);
+    /* Fill most of screen */
 }
 
 .hero__text {
@@ -327,6 +365,7 @@ body {
 .text-gradient {
     background: linear-gradient(135deg, var(--whatsapp-primary) 0%, #69f0ae 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
@@ -538,109 +577,300 @@ body {
     letter-spacing: 0.05em;
 }
 
-.features {
-    background-color: var(--neutral-900);
-    padding: var(--space-20) 0;
+/* --- IMMERSIVE FEATURE SPOTLIGHT (Replacing Bento) --- */
+.features-immersive {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    padding: var(--space-12) 0;
 }
 
-.features__grid {
+.feature-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
-    align-items: stretch;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
 }
 
-.feature-wide {
-    grid-column: span 2;
+@media (max-width: 900px) {
+    .feature-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        text-align: center;
+    }
+
+    .feature-row.reversed {
+        direction: ltr;
+        /* Reset visual order on mobile */
+    }
+
+    .feature-text {
+        order: 2;
+        /* Text below image on mobile for immediate visual impact? Or text first? Let's do Text First usually. */
+        order: 1;
+    }
+
+    .feature-visual {
+        order: 2;
+        min-height: 300px;
+    }
 }
 
-/* Spotlight Effect */
-.spotlight-card {
+.feature-text h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: var(--space-4);
+    background: linear-gradient(90deg, #fff, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+}
+
+.feature-text p {
+    font-size: 1.125rem;
+    color: var(--neutral-400);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+}
+
+.feature-visual {
     position: relative;
+    height: 400px;
+    background: var(--neutral-800);
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.03), transparent 70%);
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.02);
-    /* More subtle base */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease;
 }
 
-.spotlight-card::after {
-    content: '';
+.feature-visual:hover {
+    transform: scale(1.02);
+    border-color: rgba(37, 211, 102, 0.2);
+}
+
+/* Specific Visual Layouts re-adapted for larger space */
+.visual-chat-wrapper {
+    /* Centered in the large box */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    right: auto;
+    bottom: auto;
+    width: 250px;
+}
+
+.chat-bubble {
+    font-size: 1rem;
+    /* Larger text */
+    padding: 16px 24px;
+    width: 100%;
+}
+
+.visual-privacy-wrapper {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: auto;
+    bottom: auto;
+    width: 280px;
+    padding: 20px;
+    background: var(--neutral-900);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.privacy-row {
+    margin-bottom: 12px;
+}
+
+.privacy-avatar {
+    width: 40px;
+    height: 40px;
+}
+
+.privacy-text-blur {
+    height: 16px;
+    width: 180px;
+    filter: blur(6px);
+}
+
+.feature-visual:hover .privacy-text-blur {
+    filter: blur(0);
+}
+
+.visual-tabs {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%) rotate(-10deg);
+    /* Re-center */
+    right: auto;
+    bottom: auto;
+    scale: 1.5;
+    /* Scale up */
+}
+
+/* Decorative Background Elements */
+.card-decoration {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    bottom: -20px;
+    right: -20px;
+    opacity: 0.1;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.feature-card:hover .card-decoration {
+    opacity: 0.2;
+    transform: scale(1.1);
+}
+
+.decoration-icon {
+    font-size: 10rem;
+    color: var(--white);
+}
+
+/* Specific Card Visuals */
+/* .visual-tabs {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 4px;
+    transform: rotate(-10deg);
+    opacity: 0.5;
+} */
+
+.tab-mock {
+    width: 60px;
+    height: 40px;
+    background: var(--neutral-700);
+    border-radius: 8px 8px 0 0;
+    border: 1px solid var(--neutral-600);
+}
+
+.tab-mock.active {
+    background: var(--whatsapp-dark);
+    height: 50px;
+    transform: translateY(-10px);
+    border-color: var(--whatsapp-primary);
+}
+
+/* --- COOL BENTO VISUALS --- */
+
+/* 1. Animated Chat Bubbles */
+/* .visual-chat-wrapper {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transform: rotate(-5deg);
+    opacity: 0.8;
+}
+
+.chat-bubble {
+    background: var(--neutral-700);
+    padding: 8px 12px;
+    border-radius: 12px 12px 2px 12px;
+    font-size: 0.7rem;
+    color: var(--neutral-300);
+    width: 120px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: chat-pop 3s infinite;
+}
+
+.chat-bubble--primary {
+    background: var(--whatsapp-dark);
+    color: white;
+    align-self: flex-end;
+    border-radius: 12px 12px 12px 2px;
+    animation-delay: 1.5s;
+}
+
+@keyframes chat-pop {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-2px) scale(1.02);
+    }
+}
+
+/* 2. Privacy Unblur Effect */
+.visual-privacy-wrapper {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    background: var(--neutral-700);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.privacy-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.privacy-avatar {
+    width: 20px;
+    height: 20px;
+    background: var(--neutral-500);
+    border-radius: 50%;
+}
+
+.privacy-text-blur {
+    height: 8px;
+    width: 60px;
+    background: var(--neutral-500);
+    border-radius: 4px;
+    filter: blur(4px);
+    transition: filter 0.3s ease, background 0.3s;
+}
+
+.feature-card:hover .privacy-text-blur {
+    filter: blur(0);
+    background: var(--whatsapp-primary);
+}
+
+/* 3. Link Scanner */
+.visual-scan-wrapper {
+    position: absolute;
     bottom: 0;
-    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(37, 211, 102, 0.08), transparent 40%);
+    width: 100%;
+    height: 2px;
+    background: var(--whatsapp-primary);
+    box-shadow: 0 0 10px var(--whatsapp-primary);
+    animation: scan-line 2s linear infinite;
     opacity: 0;
     transition: opacity 0.3s;
-    pointer-events: none;
-    z-index: 1;
 }
 
-.spotlight-card:hover::after {
-    opacity: 1;
+.feature-card:hover .visual-scan-wrapper {
+    opacity: 0.8;
 }
 
-.spotlight-card:active::after {
-    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(37, 211, 102, 0.15), transparent 40%);
-}
+@keyframes scan-line {
+    0% {
+        transform: translateY(0);
+    }
 
-/* Ensure content is above spotlight */
-.feature-card>* {
-    position: relative;
-    z-index: 2;
-}
-
-.feature-card {
-    background-color: var(--neutral-800);
-    padding: var(--card-padding);
-    border-radius: var(--space-5);
-    /* 20px */
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid var(--neutral-700);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    /* Interaction rule */
-}
-
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--whatsapp-primary), var(--whatsapp-dark));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--whatsapp-primary);
-    box-shadow: var(--shadow-glow);
-    background-color: var(--neutral-800);
-    /* Keep bg consistent */
-}
-
-.feature-card:hover::before {
-    transform: scaleX(1);
-}
-
-.feature-card__icon {
-    font-size: 3.5rem;
-    margin-bottom: var(--space-5);
-    display: block;
-    line-height: 1;
+    100% {
+        transform: translateY(200px);
+    }
 }
 
 .feature-card__title {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--white);
-    /* White title for better contrast in modern dark UI */
     margin-bottom: var(--space-3);
     line-height: 1.3;
 }
@@ -658,7 +888,8 @@ body {
 
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* Fix for 400px causing break issues */
     gap: var(--space-8);
     align-items: start;
 }
@@ -1137,6 +1368,13 @@ body {
         gap: var(--space-4);
     }
 
+    .hero__social-proof,
+    .hero__cta,
+    .hero__badges,
+    .hero__social-proof-stack {
+        justify-content: center;
+    }
+
     .footer__links {
         gap: var(--space-4);
     }
@@ -1350,6 +1588,92 @@ body {
     border: 1px solid #a855f7;
 }
 
+/* Trusted By Section (Marquee) */
+.trusted-by {
+    background: var(--neutral-900);
+    padding: var(--space-10) 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--neutral-800);
+    position: relative;
+}
+
+.trusted-by__label {
+    text-align: center;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--neutral-500);
+    margin-bottom: var(--space-8);
+    font-weight: 600;
+}
+
+.trusted-by__logos {
+    display: flex;
+    /* Hide original generic flex */
+    gap: 0;
+    /* justify-content: center; Remove centralized static layout */
+    overflow: hidden;
+    /* Mask overflow */
+    position: relative;
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.logo-marquee-track {
+    display: flex;
+    gap: var(--space-16);
+    animation: marquee-scroll 40s linear infinite;
+    width: max-content;
+    padding-left: var(--space-16);
+    /* Initial offset */
+}
+
+/* Pause on hover for readability */
+.logo-marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Move half way (assuming duplicated content) */
+}
+
+.logo-item {
+    opacity: 0.5;
+    transition: all 0.3s;
+    filter: grayscale(100%);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--neutral-300);
+    white-space: nowrap;
+}
+
+.logo-item i {
+    font-size: 1.75rem;
+    color: var(--neutral-400);
+}
+
+.logo-item:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    color: var(--white);
+}
+
+.logo-item:hover i {
+    color: var(--whatsapp-primary);
+}
+
 /* Rating Stars */
 .hero__rating {
     display: flex;
@@ -1412,13 +1736,45 @@ body {
 
 
 .cta-subtext {
-    margin-top: var(--space-3);
     color: var(--neutral-400);
     font-size: 0.9rem;
-    text-align: center;
+    margin: 0;
+    /* Reset margin for stack layout */
 }
 
 /* Social Proof Live Counter */
+.hero__social-proof-stack {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+}
+
+.avatar-stack {
+    display: flex;
+}
+
+.avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 3px solid var(--neutral-900);
+    background-size: cover;
+    background-position: center;
+    background-color: var(--neutral-700);
+    margin-left: -12px;
+    transition: transform 0.2s;
+}
+
+.avatar-circle:first-child {
+    margin-left: 0;
+}
+
+.avatar-circle:hover {
+    transform: translateY(-4px);
+    z-index: 2;
+}
+
 .social-proof__live {
     display: flex;
     align-items: center;
@@ -1427,7 +1783,6 @@ body {
     background: rgba(37, 211, 102, 0.1);
     border: 1px solid var(--whatsapp-primary);
     border-radius: var(--space-3);
-    margin-top: var(--space-6);
 }
 
 .live-indicator {
@@ -1477,6 +1832,52 @@ body {
     color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+}
+
+/* Trusted By Section */
+.trusted-by {
+    background-color: var(--neutral-900);
+    padding: var(--space-8) 0;
+    border-bottom: 1px solid var(--neutral-800);
+}
+
+.trusted-by__label {
+    text-align: center;
+    color: var(--neutral-500);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-6);
+}
+
+.trusted-by__logos {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+    align-items: center;
+    opacity: 0.6;
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--neutral-400);
+    transition: all 0.3s;
+    cursor: default;
+}
+
+.logo-item:hover {
+    color: var(--white);
+    opacity: 1;
+}
+
+.logo-item i {
+    font-size: 1.5rem;
+    color: var(--neutral-500);
 }
 
 /* Pain Points Section */
@@ -1559,43 +1960,126 @@ body {
     border-color: var(--accent-red);
 }
 
-.comparison-card--after {
-    border-color: var(--whatsapp-primary);
-    background: linear-gradient(135deg, var(--neutral-900), var(--neutral-800));
+/* INNOVATIVE COMPARISON TABLE */
+.comparison {
+    background: linear-gradient(180deg, var(--neutral-900) 0%, var(--neutral-800) 100%);
+    padding: var(--space-20) 0;
 }
 
-.comparison-header {
+.comparison-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--neutral-900);
+    border-radius: 24px;
+    border: 1px solid var(--neutral-700);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
+}
+
+.comparison-header-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    padding: 20px 30px;
+    background: var(--neutral-800);
+    border-bottom: 1px solid var(--neutral-700);
+    align-items: center;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    padding: 16px 30px;
+    border-bottom: 1px solid var(--neutral-800);
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.comparison-row:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.comparison-row:last-child {
+    border-bottom: none;
+}
+
+.col-feature {
+    color: var(--neutral-300);
+    font-size: 1rem;
+    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: var(--space-4);
-    margin-bottom: var(--space-6);
+    gap: 12px;
 }
 
-.comparison-icon {
-    font-size: 3rem;
+.col-competitor {
+    text-align: center;
+    color: var(--neutral-500);
+    font-weight: 600;
 }
 
-.comparison-header h3 {
+.col-us {
+    text-align: center;
     color: var(--white);
-    font-size: 1.5rem;
     font-weight: 700;
+    position: relative;
 }
 
-.comparison-list {
-    list-style: none;
-    margin-bottom: var(--space-6);
+/* Highlight the US column */
+.comparison-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 33.33%;
+    background: rgba(37, 211, 102, 0.03);
+    border-left: 1px solid rgba(37, 211, 102, 0.1);
+    pointer-events: none;
+    z-index: 0;
 }
 
-.comparison-list li {
-    color: var(--neutral-300);
-    padding: var(--space-3) 0;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    border-bottom: 1px solid var(--neutral-700);
+.check-icon {
+    color: var(--whatsapp-primary);
+    font-size: 1.25rem;
+    filter: drop-shadow(0 0 5px rgba(37, 211, 102, 0.4));
 }
 
-.comparison-list li:last-child {
-    border-bottom: none;
+.cross-icon {
+    color: var(--neutral-600);
+    font-size: 1.25rem;
+}
+
+.best-choice-badge {
+    display: inline-block;
+    background: var(--whatsapp-dark);
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 800;
+}
+
+/* Mobile Responsive Comparison */
+@media (max-width: 650px) {
+
+    .comparison-header-row,
+    .comparison-row {
+        grid-template-columns: 1fr 1fr;
+        padding: 12px 16px;
+    }
+
+    .col-competitor {
+        display: none;
+        /* Hide competitor column on minimal screens */
+    }
+
+    .comparison-wrapper::before {
+        width: 50%;
+    }
 }
 
 .comparison-time {
@@ -1619,28 +2103,114 @@ body {
     margin-top: var(--space-12);
 }
 
-/* Enhanced Testimonials */
-.testimonial-card--featured {
-    border-color: var(--whatsapp-primary);
-    background: linear-gradient(135deg, var(--neutral-900), var(--neutral-800));
+/* X-Style Social Proof Cards */
+.testimonial-card {
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 
-.testimonial-rating {
-    display: flex;
-    gap: var(--space-1);
-    margin-bottom: var(--space-4);
-}
-
-.author-info {
+.tweet-card {
+    background: var(--neutral-900);
+    border: 1px solid var(--neutral-800);
+    border-radius: 16px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
+    gap: 12px;
+    transition: all 0.2s ease;
+    cursor: default;
 }
 
-.author-name {
-    font-weight: 600;
+.tweet-card:hover {
+    background: var(--neutral-800);
+    border-color: var(--neutral-700);
+}
+
+.tweet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.tweet-user {
+    display: flex;
+    gap: 12px;
+}
+
+.tweet-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--neutral-700);
+}
+
+.tweet-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.tweet-name {
+    font-weight: 700;
     color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tweet-verified {
+    color: #1d9bf0;
+    font-size: 0.9rem;
+}
+
+.tweet-handle {
+    color: var(--neutral-500);
+    font-size: 0.9rem;
+}
+
+.tweet-icon-x {
+    color: var(--neutral-500);
+    font-size: 1.2rem;
+}
+
+.tweet-content {
     font-size: 1rem;
+    line-height: 1.5;
+    color: var(--neutral-200);
+}
+
+.tweet-actions {
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+    color: var(--neutral-500);
+    font-size: 1.1rem;
+}
+
+.tweet-action {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.tweet-action:hover {
+    color: var(--whatsapp-primary);
+}
+
+.tweet-action--like:hover {
+    color: #f91880;
+}
+
+.tweet-action--retweet:hover {
+    color: #00ba7c;
+}
+
+.tweet-card--featured {
+    border-color: rgba(37, 211, 102, 0.3);
+    box-shadow: 0 0 0 1px rgba(37, 211, 102, 0.1);
 }
 
 .author-role {
@@ -1718,10 +2288,69 @@ body {
     margin: 0 auto;
 }
 
+/* Glassmorphic Portal CTA */
+.cta-final {
+    padding: var(--space-24) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-portal-card {
+    position: relative;
+    background: linear-gradient(135deg, #111, #0a0a0a);
+    border: 1px solid var(--neutral-800);
+    border-radius: 32px;
+    padding: var(--space-16) var(--space-8);
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 0 100px -20px rgba(37, 211, 102, 0.1);
+}
+
+.cta-glow-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37, 211, 102, 0.15) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.cta-portal-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+}
+
 .cta-final-icon {
-    font-size: 5rem;
-    margin-bottom: var(--space-6);
-    animation: bounce 2s ease-in-out infinite;
+    font-size: 4rem;
+    color: var(--whatsapp-primary);
+    margin-bottom: 0;
+    filter: drop-shadow(0 0 20px rgba(37, 211, 102, 0.5));
+    animation: float 3s ease-in-out infinite;
+}
+
+.cta-portal-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--space-4);
+}
+
+.cta-portal-subtitle {
+    font-size: 1.25rem;
+    color: var(--neutral-400);
+    max-width: 600px;
+    line-height: 1.6;
 }
 
 .cta-final-features {
@@ -1729,44 +2358,41 @@ body {
     justify-content: center;
     gap: var(--space-8);
     flex-wrap: wrap;
-    margin: var(--space-10) 0;
 }
 
 .cta-feature {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: var(--space-2);
-    color: var(--whatsapp-primary);
-    font-weight: 600;
-    font-size: 1.05rem;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--neutral-200);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .cta-feature-icon {
-    font-size: 1.5rem;
+    color: var(--whatsapp-primary);
 }
 
-.cta-guarantee {
-    margin-top: var(--space-4);
-    color: var(--neutral-400);
-    font-size: 0.95rem;
-}
-
-.cta-urgency {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-3);
-    margin-top: var(--space-8);
-    padding: var(--space-4) var(--space-6);
+.cta-urgency-badge {
     background: rgba(255, 107, 107, 0.1);
-    border: 1px solid var(--accent-red);
-    border-radius: var(--space-3);
     color: var(--accent-red);
-    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: var(--space-8);
 }
 
-.urgency-icon {
-    font-size: 1.5rem;
+@media (max-width: 768px) {
+    .cta-portal-title {
+        font-size: 2.5rem;
+    }
 }
 
 /* Feature Card Enhancements */
